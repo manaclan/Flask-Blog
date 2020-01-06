@@ -8,7 +8,7 @@ source venv/bin/activate
 **Install dependencies:**  
 Ubuntu:  
 pip install --upgrade setuptools  
-pip install -r requirements.txt
+pip install -r requirements.txt  
 pip install Flask-FlatPages (for some reason pip freeze didnt include FlatPages)  
 
 **Run server:**  
