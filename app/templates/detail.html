@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block extra_header %}
+  
+{% endblock %}
+
+{% block app_content %}
+  <h1>{{ post.title }}</h1>
+  <p>Created {{ post.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
+  {{ post.html_content() }}
+  {% if current_user.is_authenticated %}
+    <li><a href="{{ url_for('main.edit', slug=post.slug) }}">Edit post</a></li>
+  {% endif %}
+  {% if form %}
+    {{ wtf.quick_form(form) }}
+    <br>
+    {% endif %}
+    {% for comment in comments %}
+        {% include '_comment.html' %}
+    {% endfor %}
+{% endblock %}
